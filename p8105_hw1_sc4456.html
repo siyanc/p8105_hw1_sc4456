@@ -128,7 +128,28 @@ $(document).ready(function () {
 </div>
 
 
-
+<div id="porblem-1.-creating-a-data-frame" class="section level1">
+<h1>Porblem 1. Creating A Data Frame</h1>
+<pre class="r"><code>set.seed (1) 
+type_numeric = runif(10, 0, 5)
+type_logical = type_numeric &gt; 2
+type_charac = c (&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;)
+type_factor = factor(c(&quot;North&quot;, &quot;East&quot;, &quot;South&quot;, &quot;West&quot;, &quot;North&quot;, &quot;East&quot;, &quot;South&quot;, &quot;West&quot;, &quot;North&quot;, &quot;East&quot;))
+tibble(type_numeric, type_logical, type_charac, type_factor)</code></pre>
+<pre><code>## # A tibble: 10 x 4
+##    type_numeric type_logical type_charac type_factor
+##           &lt;dbl&gt; &lt;lgl&gt;        &lt;chr&gt;       &lt;fct&gt;      
+##  1        1.33  FALSE        a           North      
+##  2        1.86  FALSE        b           East       
+##  3        2.86  TRUE         c           South      
+##  4        4.54  TRUE         d           West       
+##  5        1.01  FALSE        e           North      
+##  6        4.49  TRUE         f           East       
+##  7        4.72  TRUE         g           South      
+##  8        3.30  TRUE         h           West       
+##  9        3.15  TRUE         i           North      
+## 10        0.309 FALSE        j           East</code></pre>
+</div>
 
 
 
