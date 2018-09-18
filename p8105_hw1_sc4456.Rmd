@@ -18,4 +18,27 @@ type_charac = c ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j")
 type_factor = factor(c("North", "East", "South", "West", "North", "East", "South", "West", "North", "East"))
 tibble(type_numeric, type_logical, type_charac, type_factor)
 ```
+## mean of each variable
+```{r}
+mean(type_numeric)
+mean(type_logical)
+mean(type_charac)
+mean(type_factor)
+# numerical variable and logical vector variable works to get the mean; character vector and factor vector does not work. Because there is no numerical meaning for character vector and factor vectos, we get NA for their mean value. 
+```
+## test as.numeric function 
+```{r, eval = FALSE}
+as.numeric(type_logical)
+as.numeric(type_charac)
+as.numeric(type_factor)
+# as.numeric function can convert logical vector e and factor vector to numberic values but does not work for character vector.
+```
+## variable conversion 
+```{r}
+# This is to convert character variable from character to factor to numeric
+as.numeric(as.factor(type_charac))
+# This is to convert factor varible from factor to character to numeric
+as.numeric(as.character(type_factor))
+# The results shows that first conversion is successful and the second conversion is not successful 
+```
 

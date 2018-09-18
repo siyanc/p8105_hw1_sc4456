@@ -149,6 +149,40 @@ tibble(type_numeric, type_logical, type_charac, type_factor)</code></pre>
 ##  8        3.30  TRUE         h           West       
 ##  9        3.15  TRUE         i           North      
 ## 10        0.309 FALSE        j           East</code></pre>
+<div id="mean-of-each-variable" class="section level2">
+<h2>mean of each variable</h2>
+<pre class="r"><code>mean(type_numeric)</code></pre>
+<pre><code>## [1] 2.757569</code></pre>
+<pre class="r"><code>mean(type_logical)</code></pre>
+<pre><code>## [1] 0.6</code></pre>
+<pre class="r"><code>mean(type_charac)</code></pre>
+<pre><code>## Warning in mean.default(type_charac): argument is not numeric or logical:
+## returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code>mean(type_factor)</code></pre>
+<pre><code>## Warning in mean.default(type_factor): argument is not numeric or logical:
+## returning NA</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="r"><code># numerical variable and logical vector variable works to get the mean; character vector and factor vector does not work. Because there is no numerical meaning for character vector and factor vectos, we get NA for their mean value. </code></pre>
+</div>
+<div id="test-as.numeric-function" class="section level2">
+<h2>test as.numeric function</h2>
+<pre class="r"><code>as.numeric(type_logical)
+as.numeric(type_charac)
+as.numeric(type_factor)
+# as.numeric function can convert logical vector e and factor vector to numberic values but does not work for character vector.</code></pre>
+</div>
+<div id="variable-conversion" class="section level2">
+<h2>variable conversion</h2>
+<pre class="r"><code># This is to convert character variable from character to factor to numeric
+as.numeric(as.factor(type_charac))</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="r"><code># This is to convert factor varible from factor to character to numeric
+as.numeric(as.character(type_factor))</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>##  [1] NA NA NA NA NA NA NA NA NA NA</code></pre>
+<pre class="r"><code># The results shows that first conversion is successful and the second conversion is not successful </code></pre>
+</div>
 </div>
 
 
