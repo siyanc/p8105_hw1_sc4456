@@ -9,8 +9,9 @@ output: html_document
 library(tidyverse)
 ```
 
-# Porblem 1. Creating A Data Frame 
+# Porblem 1.  
 ```{r}
+# Creating A Data Frame
 set.seed (1) 
 type_numeric = runif(10, 0, 5)
 type_logical = type_numeric > 2
@@ -40,5 +41,26 @@ as.numeric(as.factor(type_charac))
 # This is to convert factor varible from factor to character to numeric
 as.numeric(as.character(type_factor))
 # The results shows that first conversion is successful and the second conversion is not successful 
+```
+
+# Problem 2
+```{r}
+# Creating A Data Frame
+set.seed(2)
+x = rnorm(1000, 0, 1)
+y = rnorm(1000, 0, 1)
+var_logical = x + y > 0
+var_numeric = as.numeric(var_logical)
+var_factor = as.factor(var_logical)
+data_table2=tibble(x, y, var_logical, var_numeric, var_factor)
+```
+The size of of the dataset is `r dim(data_table2)`, the mean of x is `r mean(x)`, the median of x is `r median(x)`, the proportion of cases for which the logical vector is TRUE IS `r sum(var_numeric)/length(var_numeric)`
+
+## plots
+```{r}
+ggplot(data_table2, aes(x = x, y = y, color = var_logical)) + geom_point() 
+ggsave("data_table2_plot.pdf")
+ggplot(data_table2, aes(x = x, y = y, color = var_numeric)) + geom_point()
+ggplot(data_table2, aes(x = x, y = y, color = var_factor)) + geom_point()
 ```
 
