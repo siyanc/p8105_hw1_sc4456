@@ -2,7 +2,7 @@
 title: "p8105_hw1_sc4456"
 author: "Siyan Chen"
 date: "9/18/2018"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -25,15 +25,17 @@ mean(type_numeric)
 mean(type_logical)
 mean(type_charac)
 mean(type_factor)
-# numerical variable and logical vector variable works to get the mean; character vector and factor vector does not work. Because there is no numerical meaning for character vector and factor vectos, we get NA for their mean value. 
 ```
+numerical variable and logical vector variable works to get the mean; character vector and factor vector does not work. There is no numerical meaning for character vector and factor vectos, we get NA for their mean value. Logical vector have numerical have numerical meaning which consider True to be 1 and False to be 0. 
+
 ## test as.numeric function 
 ```{r, eval = FALSE}
 as.numeric(type_logical)
 as.numeric(type_charac)
 as.numeric(type_factor)
-# as.numeric function can convert logical vector e and factor vector to numberic values but does not work for character vector.
 ```
+as.numeric function can convert logical vector e and factor vector to numberic values but does not work for character vector.
+
 ## variable conversion 
 ```{r}
 # This is to convert character variable from character to factor to numeric
@@ -53,8 +55,9 @@ var_logical = x + y > 0
 var_numeric = as.numeric(var_logical)
 var_factor = as.factor(var_logical)
 data_table2=tibble(x, y, var_logical, var_numeric, var_factor)
+data_table2
 ```
-The size of of the dataset is `r dim(data_table2)`, the mean of x is `r mean(x)`, the median of x is `r median(x)`, the proportion of cases for which the logical vector is TRUE IS `r sum(var_numeric)/length(var_numeric)`
+The size of of the dataset is `r nrow(data_table2)` observation and `r ncol(data_table2)` variables. The mean of x is `r mean(x)`, the median of x is `r median(x)`, the proportion of cases for which the logical vector is TRUE IS `r sum(var_numeric)/length(var_numeric)`
 
 ## plots
 ```{r}
